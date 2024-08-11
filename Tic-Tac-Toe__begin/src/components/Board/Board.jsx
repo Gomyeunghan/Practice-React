@@ -34,13 +34,15 @@ export default function Board() {
   const winner = checkWinner(squares);
 
   let statusMessage;
+  const isDraw = !winner && squares.every((square) => square);
 
   if (winner) {
     statusMessage = `승자!:${winner.player}`;
+  } else if (isDraw) {
+    statusMessage = `비김`;
   } else {
     statusMessage = `플레이어 ${nextPlayer}`;
   }
-  console.log(statusMessage);
 
   const squareClick = (index) => () => {
     const nextSquares = [...squares];
