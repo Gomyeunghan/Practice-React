@@ -33,8 +33,16 @@ export default function Board() {
   const nextPlayer = isCircleNext ? '⚫️' : '🟨';
   const winner = checkWinner(squares);
 
+  let statusMessage;
+
+  if (winner) {
+    statusMessage = `승자!:${winner.player}`;
+  } else {
+    statusMessage = `플레이어 ${nextPlayer}`;
+  }
+  console.log(statusMessage);
+
   const squareClick = (index) => () => {
-    if (winner) return alert('GAME OVER');
     const nextSquares = [...squares];
     nextSquares[index] = nextPlayer;
     setSquares(nextSquares);
@@ -42,7 +50,7 @@ export default function Board() {
   };
   return (
     <div className="Board">
-      <Status nextPlayer={nextPlayer}></Status>
+      <Status statusMessage={statusMessage}></Status>
       <Squares squares={squares} squareClick={squareClick}></Squares>
     </div>
   );

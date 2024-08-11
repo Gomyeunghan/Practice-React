@@ -1,3 +1,3 @@
-export default function Status({ nextPlayer }) {
-  return <h2 className="Status">플레이어 : {nextPlayer}</h2>;
+export default function Status({ statusMessage }) {
+  return <h2 className="Status"> {statusMessage}</h2>;
 }
