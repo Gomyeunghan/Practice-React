@@ -45,6 +45,7 @@ export default function Board() {
   }
 
   const squareClick = (index) => () => {
+    if (winner) return alert('GAME OVER');
     const nextSquares = [...squares];
     nextSquares[index] = nextPlayer;
     setSquares(nextSquares);
