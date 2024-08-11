@@ -1,4 +1,4 @@
-export default function Square({ children, squareClick }) {
+export default function Square({ squareClick, children }) {
   return (
     <button type="button" className="Square" onClick={squareClick}>
       {children}
